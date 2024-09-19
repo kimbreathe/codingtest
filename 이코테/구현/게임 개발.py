@@ -6,6 +6,7 @@ x, y, direction = map(int, input().split())
 # 방문한 좌표 초기화
 d = [[0] * M for _ in range(N)]
 d[x][y] = 1
+
 # map 생성
 array = []
 for i in range(N):
@@ -30,7 +31,9 @@ while True:
   # 탐색할 칸의 위치 nx, ny
   nx = x + dx[direction]
   ny = y + dy[direction]
+  # 가보지 않은 칸+육지이면 이동!
   if d[nx][ny] == 0 and array[nx][ny] == 0:
+    d[nx][ny] = 1
     x = nx
     y = ny
     count += 1
